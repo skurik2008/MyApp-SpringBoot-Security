@@ -16,8 +16,12 @@ public class UserDaoImpl implements UserDao {
     @PersistenceContext
     public EntityManager entityManager;
 
+    private final ApplicationContext context;
+
     @Autowired
-    public ApplicationContext context;
+    public UserDaoImpl(ApplicationContext context) {
+        this.context = context;
+    }
 
     @Override
     public List<MyUser> getUsers() {
